@@ -3,8 +3,10 @@
 workspace.xml
 *.db
 소상공인_201906/
-model/
-dogs-vs-cats/
+
+
+model
+dataset
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
