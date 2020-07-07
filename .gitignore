@@ -3,10 +3,9 @@
 workspace.xml
 *.db
 소상공인_201906/
-
-
-model
-dataset
+preview/
+model/
+dataset/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
