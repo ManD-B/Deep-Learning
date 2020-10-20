@@ -47,6 +47,7 @@ shapiro.test(data$Nas) # p-value = 2.936e-05
 
 # 판매량 상관관계 분석
 cor(data)
+
 cor(data_z)
 # -> S.P500, silver가 양의상관관계, CNY, EUR, JPY, USD, 변동률이 음의 상관관계임
 
@@ -99,3 +100,22 @@ acc
 
 # ACCURACY 평균
 mean(acc)
+
+library(leaps)
+a = regsubsets(Nas~., data = data)
+summary(a)
+plot(a, scale="adjr2")
+
+# 날짜 데이터로 변환
+install.packages("lubridate")
+library(lubridate)
+data$date <- ymd(data$date)
+str(data)
+
+# dygraphs 시계열 그래프
+install.packages("dygraphs")
+library(dygraphs)
+head(data)
+library(xts)
+data_time <- xts(data$Nas, order.by = data$date)
+dygraph(data_time) %>% dyRangeSelector()
